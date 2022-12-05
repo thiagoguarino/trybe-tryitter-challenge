@@ -1,1 +1,1 @@
-# trybe-tryitter-challange
+# trybe-tryitter-challenge
