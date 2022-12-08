@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Trybe.Tryitter.Models;
 using Trybe.Tryitter.Repository;
 
 namespace Trybe.Tryitter.Controllers
@@ -12,10 +13,15 @@ namespace Trybe.Tryitter.Controllers
             _usersRepository = usersRepository;
         }
 
-        [HttpGet]
-        public IActionResult GetUsers()
+        [HttpPost]
+        public IActionResult AddUser([FromBody] Users user)
         {
-            return Ok(_usersRepository.GetUser());
+            if (user == null)
+            {
+                return BadRequest();
+            }
+            _usersRepository.AddUser(user);
+            return CreatedAtAction("Get", new { id = user.Id }, user);
 
         }
 

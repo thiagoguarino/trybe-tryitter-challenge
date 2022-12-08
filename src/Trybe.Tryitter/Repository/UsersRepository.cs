@@ -4,9 +4,24 @@ namespace Trybe.Tryitter.Repository
 {
     public class UsersRepository
     {
-        public Users GetUser()
+
+        private readonly MyContext _context;
+
+        public UsersRepository(MyContext context)
         {
-            throw NotImplementedException();
+            _context = context;
+        }
+
+        public void GetUser(int id)
+        {
+            _context.Users.Find(id);
+            _context.SaveChanges();
+        }
+
+        public void AddUser (Users user)
+        {
+            _context.Users.Add(user);
+            _context.SaveChanges();
         }
     }
 }
