@@ -4,24 +4,27 @@ using Trybe.Tryitter.Repository;
 
 namespace Trybe.Tryitter.Controllers
 {
+    [ApiController]
+    [Route("trybe-tryitter")]
     public class UsersController : ControllerBase
     {
-        private readonly UsersRepository _usersRepository;
+        private readonly UserRepository _usersRepository;
 
-        public UsersController(UsersRepository usersRepository)
+        public UsersController(UserRepository usersRepository)
         {
             _usersRepository = usersRepository;
         }
 
         [HttpPost]
-        public IActionResult AddUser([FromBody] Users user)
+        [Route("add-user")]
+        public IActionResult AddUser([FromBody] User user)
         {
             if (user == null)
             {
                 return BadRequest();
             }
-            _usersRepository.AddUser(user);
-            return CreatedAtAction("Get", new { id = user.Id }, user);
+            var add = _usersRepository.AddUser(user);
+            return Ok(add);
 
         }
 
