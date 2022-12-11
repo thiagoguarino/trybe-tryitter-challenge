@@ -2,6 +2,11 @@ using Trybe.Tryitter.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
+using (var db = new MyContext())
+{
+    db.Database.EnsureCreated();
+}
+
 // Add services to the container.
 
 builder.Services.AddControllers();

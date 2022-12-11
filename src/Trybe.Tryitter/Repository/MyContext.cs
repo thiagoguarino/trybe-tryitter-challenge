@@ -15,7 +15,7 @@ namespace Trybe.Tryitter.Repository
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=127.0.0.1;Database=trybe_tryitter;User=SA;Password=Password12!");
+                optionsBuilder.UseSqlServer("Server=127.0.0.1;Database=trybe_tryitter;User=SA;Password=Password12!;TrustServerCertificate=True;");
             }
         }
     }
