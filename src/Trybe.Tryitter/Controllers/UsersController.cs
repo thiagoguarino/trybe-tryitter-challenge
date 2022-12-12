@@ -8,9 +8,9 @@ namespace Trybe.Tryitter.Controllers
     [Route("trybe-tryitter")]
     public class UsersController : ControllerBase
     {
-        private readonly UserRepository _usersRepository;
+        private readonly IUserRepository _usersRepository;
 
-        public UsersController(UserRepository usersRepository)
+        public UsersController(IUserRepository usersRepository)
         {
             _usersRepository = usersRepository;
         }
