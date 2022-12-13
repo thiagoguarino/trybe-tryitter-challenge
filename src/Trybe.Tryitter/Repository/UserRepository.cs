@@ -18,6 +18,16 @@ namespace Trybe.Tryitter.Repository
             return true;
         }
 
+        public User? GetUser(User user)
+        {
+            var current = _context.Users.First(c => c.Name == user.Name && c.Password == user.Password);
+            if (current == null)
+            {
+                return null;
+            }
+            return current;
+        }
+
 
         
     }
