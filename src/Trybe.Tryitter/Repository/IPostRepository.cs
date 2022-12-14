@@ -10,5 +10,7 @@ namespace Trybe.Tryitter.Repository
         public IEnumerable<Post> GetAllPosts();
         public void UpdatePost(Post post);
         public bool DeletePost(int id);
+        public IEnumerable<Post> GetAllUserPosts(int userId);
+        public Post GetLastPost(int userId);
     }
 }

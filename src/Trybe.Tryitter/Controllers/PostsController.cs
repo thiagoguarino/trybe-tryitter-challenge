@@ -39,7 +39,7 @@ namespace Trybe.Tryitter.Controllers
         [Route("add-post")]
         public IActionResult AddPost([FromBody] Post post)
         {
-            if (post.Content.Length > 300)
+            if (post?.Content.Length > 300)
             {
                 return BadRequest("Mensagem ultrapassou 300 caracteres");
             };
@@ -71,6 +71,23 @@ namespace Trybe.Tryitter.Controllers
                 return BadRequest();
             }
             return Ok();
+        }
+
+        [HttpGet]
+        [Route("get-all-user-posts/{userId}")]
+        public IActionResult GetAllUserPosts(int userId)
+        {
+            var result = _repository.GetAllUserPosts(userId);
+            return Ok(result);
+
+        }
+
+        [HttpGet]
+        [Route("get-last-post/{userId}")]
+        public IActionResult GetLastPost(int userId)
+        {
+            var result = _repository.GetLastPost(userId);
+            return Ok(result);
         }
     }
 }
