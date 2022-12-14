@@ -23,7 +23,7 @@ namespace Trybe.Tryitter.Controllers
             UserViewModel userViewModel = new UserViewModel();
             try
             {
-                userViewModel.User = _repository.GetUser(user);
+                userViewModel.User = _repository.GetUserAuth(user);
                 if (userViewModel.User == null) 
                 {
                     return NotFound("User not found!");

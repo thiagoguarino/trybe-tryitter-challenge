@@ -39,6 +39,11 @@ namespace Trybe.Tryitter.Controllers
         [Route("add-post")]
         public IActionResult AddPost([FromBody] Post post)
         {
+            if (post.Content.Length > 300)
+            {
+                return BadRequest("Mensagem ultrapassou 300 caracteres");
+            };
+            
             var result = _repository.AddPost(post);
             if (result == null)
             {
