@@ -2,7 +2,7 @@ namespace Trybe.Tryitter.Test;
 using Trybe.Tryitter.Controllers;
 using FluentAssertions;
 
-public class UsersTest
+public class UsersTestController
 {
     [Fact(DisplayName="Creates User successfully")]
     public void AddUser()
@@ -60,7 +60,7 @@ public class UsersTest
     {
         // arrange  
 
-        // act  
+        // act
 
         // assert  
     }
