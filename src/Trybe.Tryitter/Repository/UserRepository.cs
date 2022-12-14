@@ -1,5 +1,4 @@
 ﻿using Trybe.Tryitter.Models;
-using Trybe.Tryitter.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Trybe.Tryitter.Repository

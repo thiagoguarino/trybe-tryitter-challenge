@@ -47,5 +47,15 @@ namespace Trybe.Tryitter.Repository
             _context.SaveChanges();
             return true;
         }
+
+        public IEnumerable<Post> GetAllUserPosts(int userId)
+        {
+            return _context.Posts.Where(x => x.UserId == userId).ToList();
+        }
+
+        public Post GetLastPost(int userId)
+        {
+            return _context.Posts.Where(x => x.UserId == userId).ToList().Last();
+        }
     }
 }
