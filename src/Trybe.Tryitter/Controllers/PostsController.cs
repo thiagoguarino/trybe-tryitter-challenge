@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using Trybe.Tryitter.Models;
 using Trybe.Tryitter.Repository;
 
@@ -54,9 +56,18 @@ namespace Trybe.Tryitter.Controllers
         }
 
         [HttpPatch]
+        //[Authorize]
         [Route("update-post")]
         public IActionResult UpdatePost([FromBody] Post post)
         {
+            //var claims = HttpContext.User.Identity as ClaimsIdentity;
+            //var getId = claims.FindFirst("Id").Value;
+
+            //if(Convert.ToInt32(getId) != post.UserId)
+            //{
+            //    return BadRequest();
+            //};
+
             _repository.UpdatePost(post);
             return Ok();
         }

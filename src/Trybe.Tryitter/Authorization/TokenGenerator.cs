@@ -27,11 +27,11 @@ namespace Trybe.Tryitter.Authorization
             return tokenHandler.WriteToken(token);
         }
 
-        private ClaimsIdentity AddClaims(User user)
+        static ClaimsIdentity AddClaims(User user)
         {
             var claims = new ClaimsIdentity();
 
-            claims.AddClaim(new Claim("Name", user.Name));
+            claims.AddClaim(new Claim("Id", user.Id.ToString()));
 
             return claims;
         }
