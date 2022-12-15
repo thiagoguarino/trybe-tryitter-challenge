@@ -29,17 +29,10 @@ namespace Trybe.Tryitter.Repository
             return current;
         }
 
-        public IEnumerable<UserDTO> GetUsers()
+        public IEnumerable<User> GetUsers()
         {
-        var users = _context.Users
-           .Select(x => new UserDTO
-           {
-             Name = x.Name,
-             Email = x.Email,
-             Status = x.Status
-           }
-           );
-        return users;
+            return _context.Users.ToList();
+           
 
         }
 
