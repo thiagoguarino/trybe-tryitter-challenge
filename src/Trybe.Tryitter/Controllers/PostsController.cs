@@ -55,7 +55,7 @@ namespace Trybe.Tryitter.Controllers
 
         }
 
-        [HttpPatch]
+        [HttpPut]
         //[Authorize]
         [Route("update-post")]
         public IActionResult UpdatePost([FromBody] Post post)
